@@ -70,10 +70,8 @@ function App() {
           <Router>
             <Navbar/>
             <Routes>
-              <Route path="/openCodeTrackerFront/*search" element={<Search/>} />
               <Route path="/openCodeTrackerFront/search*" element={<Search/>} />
               <Route path="/openCodeTrackerFront/" element={<Home/>} />
-              <Route path="/openCodeTrackerFront/*single/" element={<Single />} />
               <Route path="/openCodeTrackerFront/single" element={<Single />} />
             </Routes>
           </Router>
@@ -84,7 +82,7 @@ function App() {
             <AiFillLinkedin className='i'  size={42} />
             <BsGlobe  className='i'  size={40}/>
           </div>
-          <p>&copy; 2023 openCodeTracker - Kaio Deodato. All rights reserved.</p>
+          <p className='footer-text'>&copy; 2023 openCodeTracker - Kaio Deodato. All rights reserved.</p>
         </MyFooter>
       </Wrapper>
        :

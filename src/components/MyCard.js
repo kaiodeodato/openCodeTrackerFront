@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
 
@@ -63,8 +63,11 @@ const Container = styled.div`
 `
 
 export default function MyCard({post}) {
+
+  const navigate = useNavigate();
+
   return (
-    <Container>
+    <Container  onClick={()=>navigate(`/openCodeTrackerFront/single?title=${post?.title}`)}>
       <div className='box-1'>
           <div className='info-box'>
               <h2>{post?.title}</h2>
@@ -78,9 +81,9 @@ export default function MyCard({post}) {
                   </span>
               </div>
           </div>
-          <Link  to={`single?title=${post?.title}`}>
-              <img src={post?.image} alt={post?.title} />
-          </Link>
+          <div>
+            <img src={post?.image} alt={post?.title} />
+          </div>
       </div>
     </Container>
   )

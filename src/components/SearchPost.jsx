@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SearchPostBox = styled.div`
+    cursor: pointer;
     display: flex;
     border-radius: 5px;
     max-width: 430px;
@@ -38,11 +39,14 @@ const SearchPostBox = styled.div`
 `
 
 export default function SearchPost({post}) {
+
+    const navigate = useNavigate();
+    
   return (
-    <SearchPostBox>
-        <Link  to={`single?title=${post?.title}`}>
+    <SearchPostBox onClick={()=>navigate(`/openCodeTrackerFront/single?title=${post?.title}`)}>
+        <div>
             <img src={post.image} alt={post.title} />
-        </Link>
+        </div>
         <div className='info'>
             <span className='categories'>{(post.tecnologies).join(' - ')}</span>
             <span className='title'>{post.title}</span>

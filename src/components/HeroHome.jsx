@@ -1,7 +1,7 @@
 import React,{ useState, useEffect, useContext } from 'react'
 import { ContextAPI } from '../userContext'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -42,6 +42,7 @@ const Container = styled.div`
     }
   }
   .box-img{
+    cursor: pointer;
     max-height: 510px;
     overflow:  hidden;
     align-items: start;
@@ -110,7 +111,7 @@ const Container = styled.div`
 `
 
 export default function HeroHome() {
-
+  const navigate = useNavigate();
   const {posts, setPosts} = useContext(ContextAPI)
 
 
@@ -125,35 +126,29 @@ export default function HeroHome() {
           </div>
 
         </div>
-        <div className='box-img'>
-          <Link  to={`single?title=${posts[0]?.title}`}>
+        <div  onClick={()=>navigate(`/openCodeTrackerFront/single?title=${posts[0]?.title}`)} className='box-img'>
             <img src={posts[0]?.image} alt={posts[0]?.title} />
-          </Link> 
         </div>
       </div>
       
       <div className='right-hero'>
-        <div className='box-1 first'>
+        <div onClick={()=>navigate(`/openCodeTrackerFront/single?title=${posts[1]?.title}`)}  className='box-1 first'>
           <div className='info-box'>
             <h2>{posts[1]?.title}</h2>
             <div className='content-box'>
               <span>{posts[1]?.content1}</span>
             </div>
           </div>
-          <Link  to={`single?title=${posts[1]?.title}`}>
             <img src={posts[1]?.image} alt={posts[1]?.title} />
-          </Link>
         </div>
-        <div className='box-1'>
+        <div onClick={()=>navigate(`/openCodeTrackerFront/single?title=${posts[2]?.title}`)}  className='box-1'>
           <div className='info-box'>
             <h2>{posts[2]?.title}</h2>
             <div className='content-box'>
               <span>{posts[2]?.content1}</span>
             </div>
           </div>
-          <Link  to={`single?title=${posts[2]?.title}`}>
             <img src={posts[2]?.image} alt={posts[2]?.title} />
-          </Link>
         </div>
       </div>
 

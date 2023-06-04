@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchPost from '../components/SearchPost'
 import { searchTechnology } from '../api';
 
@@ -34,6 +34,7 @@ const Box = styled.div`
       flex-wrap: wrap;
 
       .image-box{
+        cursor: pointer;
         overflow: hidden;
         max-width: 400px;
         padding: 10px;
@@ -97,6 +98,7 @@ const Box = styled.div`
 export default function Section({posts, name}) {
 
   const [postsTech, setPostsTech] = useState([])
+  const navigate = useNavigate();
 
   useEffect(()=>{
     searchTechnology(name)
@@ -110,10 +112,8 @@ export default function Section({posts, name}) {
       <h4>{name}</h4>
         <div className='first'>
           <div className='top'>
-            <div className='image-box'>
-              <Link  to={`single?title=${postsTech[0]?.title}`}>
+            <div onClick={()=>navigate(`/openCodeTrackerFront/single?title=${postsTech[0]?.title}`)} className='image-box'>
                 <img src={postsTech[0]?.image} alt="" />
-              </Link>
             </div>
             <div className='info-box'>
               <h5>{postsTech[0]?.title}</h5>
