@@ -8,7 +8,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { getAllPosts, searchTrendings } from './api';
 import styled from 'styled-components';
-import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin, AiFillPicture } from 'react-icons/ai';
 import { BsGlobe } from 'react-icons/bs';
 import Looging from './components/Looging';
 
@@ -44,6 +44,19 @@ const MyFooter = styled.div`
 
     .i{
       margin: 20px;
+    }
+
+    .icon{
+      cursor: pointer;
+      position: absolute;
+      color: #bbb;
+      transform: translate(5px,-2px);
+      transition: .3s;
+    }
+    .icon:hover{
+    
+      color: white;
+   
     }
 `;
 
@@ -100,9 +113,15 @@ function App() {
               <a target='_blank' href="http://www.portfolio.kaiodeodato.com/">
                 <BsGlobe  className='i'  size={40}/>
               </a>
+             
             
           </div>
-          <p className='footer-text'>&copy; 2023 openCodeTracker - Kaio Deodato. All rights reserved.</p>
+          <p className='footer-text'>&copy; 2023 openCodeTracker - Kaio Deodato. All rights reserved. 
+          <a 
+            target='_blank' 
+            href='https://pics.kaiodeodato.com/' 
+            className='icon'><AiFillPicture size={12}/></a></p>
+         
         </MyFooter>
       </Wrapper>
        :
