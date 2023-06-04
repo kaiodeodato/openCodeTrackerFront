@@ -2,7 +2,7 @@ import { ContextAPI } from '../userContext';
 import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { searchTitle } from '../api';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useNavigate } from 'react-router-dom';
 
 const ContainerPosts = styled.div`
   display: flex;
@@ -14,13 +14,14 @@ const ContainerPosts = styled.div`
   border-radius: 5px;
   color: #124559;
 
-  a{
+  span{
+    cursor: pointer;
     text-decoration: none;
     color: #124559;
     transition: .3s;
     margin-right: 10px;
   }
-  a:hover{
+  span:hover{
     text-decoration: none;
     color: #cfdce1;
   }
@@ -125,6 +126,7 @@ export default function Single() {
   const [searchParams] = useSearchParams();
   const [searchedPost, setSearchedPost] = useState([]);
   const title = searchParams.get('title');
+  const navigate = useNavigate();
 
   const { posts, setPosts, trending, setTrending } = useContext(ContextAPI);
   const [post, setPost] = useState([]);
@@ -150,7 +152,7 @@ export default function Single() {
               <h2>{searchedPost?.title}</h2>
               {searchedPost?.tecnologies &&
                 searchedPost.tecnologies.map((tech, index) => (
-                  <Link to={`search?tech=${tech}`} key={index}>{tech}</Link>
+                  <span  onClick={()=>navigate(`/openCodeTrackerFront/search?q=${tech}`)}>{tech}</span>
                 ))}
               <div className='date-views'>
                 <p className='date'>Date: {searchedPost?.date}</p>
