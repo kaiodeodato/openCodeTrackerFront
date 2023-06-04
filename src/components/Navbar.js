@@ -59,13 +59,13 @@ export default function Navbar() {
   function ToNavegate(e){
     e.preventDefault()
     if(!searchWord) return
-    navigate(`/search?q=${searchWord}`)
+    navigate(`/openCodeTrackerFront/search?q=${searchWord}`)
     setSearchWord("")
   }
   return (
     
     <Box>
-      <Link to={'/'}>
+      <Link to={'/openCodeTrackerFront/'}>
         <Logo className='logo-navbar'>openCodeTracker</Logo>
       </Link>
       <Menu>

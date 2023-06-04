@@ -72,7 +72,7 @@ function App() {
             <Routes>
               <Route path="/openCodeTrackerFront/search" element={<Search/>} />
               <Route path="/openCodeTrackerFront/" element={<Home/>} />
-              <Route path="/openCodeTrackerFront/Single" element={<Single/>} />
+              <Route path="/openCodeTrackerFront/single" element={<Single/>} />
             </Routes>
           </Router>
         </Container>
