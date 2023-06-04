@@ -1,9 +1,8 @@
 import React,{ useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Single from './pages/Single';
-
 import { ContextAPI } from "./userContext"
 import './App.css';
 import Navbar from './components/Navbar';
@@ -18,6 +17,18 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Set min-height to 100vh for the wrapper */
+
+
+  a{
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+  }
+
+  a:hover{
+    text-decoration: none;
+    color: #ccc;
+  }
 `;
 
 const MyFooter = styled.div`
@@ -46,8 +57,10 @@ function App() {
   const [trending, setTrending] = useState([])
 
   useEffect(()=>{
+
     getAllPosts()
     .then(data=>setPosts(data.reverse()))
+    .catch((err)=>console.log(err))
 
  
 
@@ -64,7 +77,7 @@ function App() {
 
   return (
     <ContextAPI.Provider value={{posts, setPosts, trending, setTrending}}>
-      { posts.length != 0 ? 
+      { posts.length !== 0 ? 
       <Wrapper>
         <Container>
           <Router>
@@ -78,9 +91,16 @@ function App() {
         </Container>
         <MyFooter>
           <div className='icons'>
-            <AiFillGithub className='i' size={40}/>
-            <AiFillLinkedin className='i'  size={42} />
-            <BsGlobe  className='i'  size={40}/>
+              <a target='_blank' href="https://github.com/kaiodeodato?tab=repositories">
+                <AiFillGithub className='i' size={40}/>
+              </a>
+              <a target='_blank' href="https://www.linkedin.com/in/kaio-viana-6ab42016b/">
+                <AiFillLinkedin className='i'  size={42} />
+              </a>
+              <a target='_blank' href="http://www.portfolio.kaiodeodato.com/">
+                <BsGlobe  className='i'  size={40}/>
+              </a>
+            
           </div>
           <p className='footer-text'>&copy; 2023 openCodeTracker - Kaio Deodato. All rights reserved.</p>
         </MyFooter>

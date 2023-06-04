@@ -46,7 +46,7 @@ const Container = styled.div`
 
     
     h2{
-        max-width: 70%;
+        max-width: 50%;
       }
 
     .info-box{
@@ -57,10 +57,19 @@ const Container = styled.div`
       margin-left: 20px;
       filter: drop-shadow(0px 0px 5px #232323);
       transition: .3s;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      width: 1100px;
+    }
+
+    @media only screen and (max-width: 600px) { 
+      .info-box{ 
+        width: 720px;
+    }
+  }
 
     
-
-    }
   }
   .box-img{
     cursor: pointer;

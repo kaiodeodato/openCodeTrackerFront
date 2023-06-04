@@ -152,7 +152,7 @@ export default function Single() {
               <h2>{searchedPost?.title}</h2>
               {searchedPost?.tecnologies &&
                 searchedPost.tecnologies.map((tech, index) => (
-                  <span  onClick={()=>navigate(`/openCodeTrackerFront/search?q=${tech}`)}>{tech}</span>
+                  <span  onClick={()=>navigate(`/openCodeTrackerFront/search?tech=${tech}`)}>{tech}</span>
                 ))}
               <div className='date-views'>
                 <p className='date'>Date: {searchedPost?.date}</p>

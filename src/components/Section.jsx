@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom';
-import SearchPost from '../components/SearchPost'
+import SearchPost from './SearchPost'
 import { searchTechnology } from '../api';
 
 
@@ -18,10 +18,15 @@ const Box = styled.div`
   border-radius: 5px;
 
   h4{
+    cursor: pointer;
     position: relative;
     color: #124559;
     margin-top: 10px;
     margin-left: 30px;
+    transition: .3s;
+  }
+  h4:hover{
+    color: #b1bfc4;
   }
 
   .first{
@@ -109,7 +114,7 @@ export default function Section({posts, name}) {
  
   return (
     <Box>
-      <h4>{name}</h4>
+      <h4 onClick={()=>navigate(`/openCodeTrackerFront/search?tech=${name}`)}>{name}</h4>
         <div className='first'>
           <div className='top'>
             <div onClick={()=>navigate(`/openCodeTrackerFront/single?title=${postsTech[0]?.title}`)} className='image-box'>

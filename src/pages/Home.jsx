@@ -152,7 +152,7 @@ export default function Home() {
                 {uniqueTechnologies.map((tech, index)=>{
                   return(
                     <span 
-                      onClick={()=>navigate(`/openCodeTrackerFront/search?q=${tech}`)}
+                      onClick={()=>navigate(`/openCodeTrackerFront/search?tech=${tech}`)}
                       key={index} 
                       >{tech} </span> 
                     

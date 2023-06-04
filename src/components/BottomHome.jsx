@@ -40,47 +40,72 @@ export default function BottomHome() {
     const {posts, setPosts} = useContext(ContextAPI)
     const [totalViews, setTotalViews] = useState()
     const [uniqueTechnologies, setUniqueTechnologies] = useState([])
+    const containerRef = useRef(null);
+    const [isIntersecting, setIsIntersecting] = useState(false);
 
     useEffect(() => {
-        const uniqueTechnologies = [...new Set(
-        posts.flatMap(post => post.tecnologies)
-        )];
-        setUniqueTechnologies(uniqueTechnologies);
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.5, // Altere esse valor para ajustar quando a interseção é detectada
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+          const entry = entries[0];
+          setIsIntersecting(entry.isIntersecting);
+        }, options);
+    
+        if (containerRef.current) {
+          observer.observe(containerRef.current);
+        }
+    
+        return () => {
+          if (containerRef.current) {
+            observer.unobserve(containerRef.current);
+          }
+        };
+      }, []);
 
-        const viewsArray = posts.map(post => {
-            return post.views;
-        });
-          
-        const sum = viewsArray.reduce((accumulator, currentValue) => {
+      useEffect(() => {
+        if (isIntersecting) {
+          const uniqueTechnologies = [...new Set(posts.flatMap((post) => post.tecnologies))];
+          setUniqueTechnologies(uniqueTechnologies);
+    
+          const viewsArray = posts.map((post) => post.views);
+    
+          const sum = viewsArray.reduce((accumulator, currentValue) => {
             return accumulator + currentValue;
-        }, 0);
-        
-        setTotalViews(sum);
-
-    }, [posts]);
+          }, 0);
+    
+          setTotalViews(sum);
+        }
+      }, [posts, isIntersecting]);
 
 // console.log('amount of technologies',uniqueTechnologies.length)
 // console.log('amount of posts',posts.length)
 // console.log(totalViews)
 
   return (
-    <Container className='container-hero'>
+    <Container ref={containerRef} className='container-hero'>
         <div className='counter'>
             <h1>
-                <CountUp end={uniqueTechnologies.length} duration={5} />
-              
+            {isIntersecting ? (
+            <CountUp end={uniqueTechnologies.length} duration={5} />
+          ) : (
+            '0'
+          )}
             </h1>
             <span>Technologies</span>
         </div>
         <div className='counter'>
             <h1>
-                <CountUp end={posts.length} duration={5} />
+            {isIntersecting ? <CountUp end={posts.length} duration={5} /> : '0'}
             </h1>
             <span>Posts</span>
         </div>
         <div className='counter'>
             <h1>
-                <CountUp end={totalViews} duration={10} />
+            {isIntersecting ? <CountUp end={totalViews} duration={5} /> : '0'}
             </h1>
             <span>Views</span>
         </div>

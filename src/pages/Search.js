@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { searchPosts } from '../api';
+import { searchPosts,searchTechnology } from '../api';
 import SearchPost from '../components/SearchPost';
 import MyCard from '../components/MyCard';
 import styled from 'styled-components';
@@ -16,7 +16,7 @@ export default function Search() {
       if(query1){
         searchPosts(query1).then((data) => setSearchedPosts(data));
       }else{
-        searchPosts(query2).then((data) => setSearchedPosts(data));
+        searchTechnology(query2).then((data) => setSearchedPosts(data));
       }
     }, [query1,query2]);
   
