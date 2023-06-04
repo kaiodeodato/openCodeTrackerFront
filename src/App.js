@@ -70,9 +70,9 @@ function App() {
           <Router>
             <Navbar/>
             <Routes>
-              <Route path="/search" element={<Search/>} />
-              <Route path="/" element={<Home/>} />
-              <Route path="/Single" element={<Single/>} />
+              <Route path="/openCodeTrackerFront/search" element={<Search/>} />
+              <Route path="/openCodeTrackerFront/" element={<Home/>} />
+              <Route path="/openCodeTrackerFront/Single" element={<Single/>} />
             </Routes>
           </Router>
         </Container>
