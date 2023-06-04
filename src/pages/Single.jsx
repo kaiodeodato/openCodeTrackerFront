@@ -130,8 +130,9 @@ export default function Single() {
   const [post, setPost] = useState([]);
 
   useEffect(() => {
-    searchTitle(title).then((data) => setSearchedPost(data));
-  }, [title]);
+    searchTitle(title)
+    .then((data) => setSearchedPost(data));
+  }, []);
 
   return (
     <ContainerPosts>

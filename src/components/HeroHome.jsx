@@ -1,6 +1,7 @@
 import React,{ useState, useEffect, useContext } from 'react'
 import { ContextAPI } from '../userContext'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -125,9 +126,9 @@ export default function HeroHome() {
 
         </div>
         <div className='box-img'>
-          <a  href={`single?title=${posts[0]?.title}`}>
+          <Link  to={`single?title=${posts[0]?.title}`}>
             <img src={posts[0]?.image} alt={posts[0]?.title} />
-          </a> 
+          </Link> 
         </div>
       </div>
       
