@@ -2,7 +2,7 @@ import { ContextAPI } from '../userContext';
 import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { searchTitle } from '../api';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 
 const ContainerPosts = styled.div`
   display: flex;
@@ -150,7 +150,7 @@ export default function Single() {
               <h2>{searchedPost?.title}</h2>
               {searchedPost?.tecnologies &&
                 searchedPost.tecnologies.map((tech, index) => (
-                  <a href={`search?tech=${tech}`} key={index}>{tech}</a>
+                  <Link to={`search?tech=${tech}`} key={index}>{tech}</Link>
                 ))}
               <div className='date-views'>
                 <p className='date'>Date: {searchedPost?.date}</p>

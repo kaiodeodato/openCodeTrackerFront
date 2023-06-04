@@ -29,7 +29,6 @@ export default function Search() {
             if (post) {
               return <MyCard key={index} post={post} />;
             }
-            
           })}
         </div>
     </div>

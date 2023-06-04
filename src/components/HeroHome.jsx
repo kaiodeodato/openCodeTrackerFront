@@ -140,9 +140,9 @@ export default function HeroHome() {
               <span>{posts[1]?.content1}</span>
             </div>
           </div>
-          <a  href={`single?title=${posts[1]?.title}`}>
+          <Link  to={`single?title=${posts[1]?.title}`}>
             <img src={posts[1]?.image} alt={posts[1]?.title} />
-          </a>
+          </Link>
         </div>
         <div className='box-1'>
           <div className='info-box'>
@@ -151,9 +151,9 @@ export default function HeroHome() {
               <span>{posts[2]?.content1}</span>
             </div>
           </div>
-          <a  href={`single?title=${posts[2]?.title}`}>
+          <Link  to={`single?title=${posts[2]?.title}`}>
             <img src={posts[2]?.image} alt={posts[2]?.title} />
-          </a>
+          </Link>
         </div>
       </div>
 

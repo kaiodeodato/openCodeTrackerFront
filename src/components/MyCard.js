@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
 
@@ -77,9 +78,9 @@ export default function MyCard({post}) {
                   </span>
               </div>
           </div>
-          <a  href={`single?title=${post?.title}`}>
+          <Link  to={`single?title=${post?.title}`}>
               <img src={post?.image} alt={post?.title} />
-          </a>
+          </Link>
       </div>
     </Container>
   )

@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from 'react'
 import styled from 'styled-components'
-
+import { Link } from 'react-router-dom';
 import SearchPost from '../components/SearchPost'
 import { searchTechnology } from '../api';
 
@@ -111,9 +111,9 @@ export default function Section({posts, name}) {
         <div className='first'>
           <div className='top'>
             <div className='image-box'>
-              <a  href={`single?title=${postsTech[0]?.title}`}>
+              <Link  to={`single?title=${postsTech[0]?.title}`}>
                 <img src={postsTech[0]?.image} alt="" />
-              </a>
+              </Link>
             </div>
             <div className='info-box'>
               <h5>{postsTech[0]?.title}</h5>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import { Link } from 'react-router-dom';
 
 const SearchPostBox = styled.div`
     display: flex;
@@ -40,9 +40,9 @@ const SearchPostBox = styled.div`
 export default function SearchPost({post}) {
   return (
     <SearchPostBox>
-        <a  href={`single?title=${post?.title}`}>
+        <Link  to={`single?title=${post?.title}`}>
             <img src={post.image} alt={post.title} />
-        </a>
+        </Link>
         <div className='info'>
             <span className='categories'>{(post.tecnologies).join(' - ')}</span>
             <span className='title'>{post.title}</span>

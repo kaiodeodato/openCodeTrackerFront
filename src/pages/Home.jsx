@@ -5,6 +5,7 @@ import SearchPost from '../components/SearchPost'
 import HeroHome from '../components/HeroHome'
 import BottomHome from '../components/BottomHome'
 import Section from '../components/Section'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const ContainerPosts = styled.div`
@@ -80,17 +81,12 @@ const ContainerPosts = styled.div`
     }
     .technologies{
       padding: 10px;
-      
 
+      span{
+        cursor: pointer;
+      }    
 
-      a{
-        text-decoration: none;
-        color: #124559;
-        transition: .2s;
-        margin-right: 3px;
-        font-size: 15px;
-      }
-      a:hover{
+      span:hover{
         text-decoration: none;
         color: #7e8486;
       }
@@ -110,6 +106,7 @@ export default function Home() {
 
   const {posts, setPosts, trending, setTrending} = useContext(ContextAPI)
   const [uniqueTechnologies, setUniqueTechnologies] = useState([])
+  const navigate = useNavigate();
 
   useEffect(() => {
     const uniqueTechnologies = [...new Set(
@@ -133,9 +130,9 @@ export default function Home() {
             <div className='backend'>
               <h2>BackEnd</h2>
               <span>Add a new post</span>
-              <a href="https://opencodetrackerback.onrender.com/">
+              <Link to="https://opencodetrackerback.onrender.com/">
                 <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="code image" />
-              </a>
+              </Link>
             </div>
 
             <div className='mostView'>
@@ -154,7 +151,10 @@ export default function Home() {
                 <div className='technologies'>
                 {uniqueTechnologies.map((tech, index)=>{
                   return(
-                    <a key={index} href={`search?tech=${tech}`}>{tech} </a> 
+                    <span 
+                      onClick={()=>navigate(`/openCodeTrackerFront/search?q=${tech}`)}
+                      key={index} 
+                      >{tech} </span> 
                     
                   )
                 })}
