@@ -15,30 +15,51 @@ const Container = styled.div`
   overflow: hidden;
   filter: drop-shadow(0px 0px 3px #4d4d4d8a);
 
+
   .content-box{
     max-height: 50px;
     max-width: 60%;
     overflow: hidden;
+    
+
   }
   .left-hero{
+    cursor: pointer;
     display: flex;
     align-items: end;
     justify-content: start;
     margin: 2px;
     border-radius: 5px;
     max-width: 835px;
+    
 
+    
+
+    &:hover .firstImage{
+      scale: 1.02;
+    }
+    &:hover .firstInfo{
+      filter: blur(20px); 
+      opacity: 0;
+   
+    }
+
+    
     h2{
-  
         max-width: 70%;
       }
 
     .info-box{
+      z-index: 5;
       position: absolute;
       color: #ebefe5;
       margin-bottom: 30px;
       margin-left: 20px;
       filter: drop-shadow(0px 0px 5px #232323);
+      transition: .3s;
+
+    
+
     }
   }
   .box-img{
@@ -49,13 +70,13 @@ const Container = styled.div`
     justify-content: end;
     border-radius: 5px;
 
+    
+   
     img{
       width: 100%;
       transition: .4s;
     }
-    img:hover{
-      scale: 1.03;
-    }
+   
   }
 
   .right-hero{
@@ -119,7 +140,7 @@ export default function HeroHome() {
     <Container className='container-hero'>
 
       <div className='left-hero'>
-        <div className='info-box'>
+        <div className='info-box firstInfo'>
           <h2>{posts[0]?.title}</h2>
           <div className='content-box'>
             <span>{posts[0]?.content1}</span>
@@ -127,7 +148,7 @@ export default function HeroHome() {
 
         </div>
         <div  onClick={()=>navigate(`/openCodeTrackerFront/single?title=${posts[0]?.title}`)} className='box-img'>
-            <img src={posts[0]?.image} alt={posts[0]?.title} />
+            <img className='firstImage' src={posts[0]?.image} alt={posts[0]?.title} />
         </div>
       </div>
       

@@ -1,4 +1,4 @@
-import React,{ useState, useEffect, useContext } from 'react'
+import React,{ useState, useEffect, useContext, useRef } from 'react'
 import { ContextAPI } from '../userContext'
 import styled from 'styled-components'
 import CountUp from 'react-countup';
@@ -67,14 +67,14 @@ export default function BottomHome() {
     <Container className='container-hero'>
         <div className='counter'>
             <h1>
-                <CountUp end={uniqueTechnologies.length} duration={10} />
+                <CountUp end={uniqueTechnologies.length} duration={5} />
               
             </h1>
             <span>Technologies</span>
         </div>
         <div className='counter'>
             <h1>
-                <CountUp end={posts.length} duration={10} />
+                <CountUp end={posts.length} duration={5} />
             </h1>
             <span>Posts</span>
         </div>
