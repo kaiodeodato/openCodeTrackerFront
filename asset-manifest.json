@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/openCodeTrackerFront/static/css/main.1c8b3c47.css",
+    "main.js": "/openCodeTrackerFront/static/js/main.7ff6695f.js",
+    "index.html": "/openCodeTrackerFront/index.html",
+    "main.1c8b3c47.css.map": "/openCodeTrackerFront/static/css/main.1c8b3c47.css.map",
+    "main.7ff6695f.js.map": "/openCodeTrackerFront/static/js/main.7ff6695f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1c8b3c47.css",
+    "static/js/main.7ff6695f.js"
+  ]
+}
