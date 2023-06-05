@@ -135,7 +135,7 @@ export default function Section({posts, name}) {
 
         <div className='small'>
           {postsTech?.map((post, index)=>{
-            if(index > 0 && index < 4){
+            if(index > 0 && index < 5){
               return(
                 <div key={index} className='small-post'>
                   <SearchPost  key={index} post={post}/>
