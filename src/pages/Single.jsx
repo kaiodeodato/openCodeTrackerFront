@@ -39,7 +39,7 @@ const ContainerPosts = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     width: 98.3%;
-    height: 205px;
+    height: auto;
     background-color: #e5eee2;
     padding: 20px;
     margin: auto;
@@ -76,6 +76,7 @@ const ContainerPosts = styled.div`
   @media only screen and (max-width: 600px) {
     .container-top{
       width: 95%;
+      
     }
     }
 
@@ -83,6 +84,7 @@ const ContainerPosts = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  
 
     .content-box {
       min-width: 300px;
