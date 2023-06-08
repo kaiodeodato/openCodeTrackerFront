@@ -43,10 +43,10 @@ const Container = styled.div`
       opacity: 0;
    
     }
-
+    
     
     h2{
-        max-width: 50%;
+        max-width: 70%;
       }
 
     .info-box{
@@ -65,8 +65,9 @@ const Container = styled.div`
 
     @media only screen and (max-width: 600px) { 
       .info-box{ 
-        width: 720px;
+        width: 100%;
     }
+   
   }
 
     
@@ -129,6 +130,7 @@ const Container = styled.div`
       }
       span{
         font-size: 14px;
+        
       }
     }
     img{
