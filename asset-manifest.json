@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/openCodeTrackerFront/static/css/main.25b310a6.css",
-    "main.js": "/openCodeTrackerFront/static/js/main.3fd2b0fb.js",
+    "main.js": "/openCodeTrackerFront/static/js/main.f7c69a0d.js",
     "index.html": "/openCodeTrackerFront/index.html",
     "main.25b310a6.css.map": "/openCodeTrackerFront/static/css/main.25b310a6.css.map",
-    "main.3fd2b0fb.js.map": "/openCodeTrackerFront/static/js/main.3fd2b0fb.js.map"
+    "main.f7c69a0d.js.map": "/openCodeTrackerFront/static/js/main.f7c69a0d.js.map"
   },
   "entrypoints": [
     "static/css/main.25b310a6.css",
-    "static/js/main.3fd2b0fb.js"
+    "static/js/main.f7c69a0d.js"
   ]
 }
