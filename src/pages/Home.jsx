@@ -40,6 +40,10 @@ const ContainerPosts = styled.div`
     margin-bottom: 5px;
     margin-inline: 3px;
 
+    img{
+      width: 100%;
+      border-radius: 5px;
+    }
     a{
       transition: .4s;
     }
