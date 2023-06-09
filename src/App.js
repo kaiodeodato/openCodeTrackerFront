@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import { AiFillGithub, AiFillLinkedin, AiFillPicture } from 'react-icons/ai';
 import { BsGlobe } from 'react-icons/bs';
 import Looging from './components/Looging';
+import Skeleton from './components/Skeleton';
 
 
 const Wrapper = styled.div`
@@ -125,7 +126,10 @@ function App() {
         </MyFooter>
       </Wrapper>
        :
-       <Looging/>
+       <>
+        <Looging/>
+        <Skeleton/>
+       </>
      }
     </ContextAPI.Provider>
   );

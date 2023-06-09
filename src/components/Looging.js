@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import React from 'react'
 
 const Body = styled.div`
+    position: absolute;
     width: 100vw;
     height: 100vh;
     display: flex;
